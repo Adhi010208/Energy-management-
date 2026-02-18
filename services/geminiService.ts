@@ -19,7 +19,7 @@ export const getGovernanceAdvice = async (energyUsed: number, prediction: number
     };
   }
 
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   
   // Using gemini-3-pro-preview for advanced competition-level reasoning
   const modelName = 'gemini-3-pro-preview'; 
