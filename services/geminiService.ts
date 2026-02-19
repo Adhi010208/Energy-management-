@@ -50,7 +50,7 @@ export const getGovernanceAdvice = async (energyUsed: number, prediction: number
       contents: prompt,
     });
     
-    const text = response.text.trim();
+    const text = (response.text || "").trim();
     localStorage.setItem('last_ai_insight', text);
     
     return { text, status: 'pro' };
