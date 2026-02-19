@@ -19,7 +19,13 @@ export const getGovernanceAdvice = async (energyUsed: number, prediction: number
     };
   }
 
-  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  
+  if (!apiKey) {
+    throw new Error('VITE_GEMINI_API_KEY environment variable is not set');
+  }
+  
+  const ai = new GoogleGenAI({ apiKey });
   
   // Using gemini-3-pro-preview for advanced competition-level reasoning
   const modelName = 'gemini-3-pro-preview'; 
